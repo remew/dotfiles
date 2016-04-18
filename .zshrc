@@ -30,12 +30,12 @@ autoload -Uz vcs_info
 setopt prompt_subst
 # zstyle ':vcs_info:*' formats '%s][* %F{green}%b%f'
 # zstyle ':vcs_info:*' actionformats '%s][* %F{green}%b%f(%F{red}%a%f)'
-zstyle ':vcs_info:*' formats '%F{green}(%s)-[%b]%f'
+zstyle ':vcs_info:*' formats '%F{blue}(%s)-[%b]%f'
 zstyle ':vcs_info:*' actionformats '%F{red}(%s)-[%b|%a]%f'
 
 precmd() {
     vcs_info
-PROMPT="%{${fg[green]}%}[%n@%m]%{${reset_color}%}%~/%f
+PROMPT="%{${fg[blue]}%}[%n@%m]%{${reset_color}%}%~/%f
 ${vcs_info_msg_0_}%# "
 }
 
