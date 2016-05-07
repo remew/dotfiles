@@ -23,8 +23,6 @@ function dotfiles_download() {
         echo "curl or wget is required"
         exit 1
     fi
-    cd dotfiles
-    ls -la
 }
 
 echo "==========================="
@@ -32,4 +30,7 @@ echo "remew's dotfiles bootloader"
 echo "==========================="
 
 dotfiles_download
+
+cd dotfiles
+./install.sh
 
