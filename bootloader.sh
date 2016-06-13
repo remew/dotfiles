@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 GIT_URL="https://github.com/remew/dotfiles.git"
 TAR_URL="https://github.com/remew/dotfiles/archive/master.tar.gz"
