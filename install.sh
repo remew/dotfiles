@@ -32,7 +32,7 @@ if exists "apt-get"; then
     if exists "zsh"; then
         echo "zsh is already installed"
     else
-        sudo apt-get install zsh
+        sudo apt-get -y install zsh
         echo "zsh path is..."
         which zsh
         chsh
@@ -40,11 +40,11 @@ if exists "apt-get"; then
     if exists "tmux"; then
         echo "tmux is already installed"
     else
-        sudo apt-get install tmux
+        sudo apt-get -y install tmux
     fi
     if exists "vim"; then
         echo "vim is already installed"
     else
-        sudo apt-get install vim
+        sudo apt-get -y install vim
     fi
 fi
