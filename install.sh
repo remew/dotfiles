@@ -9,11 +9,8 @@ echo "dotfiles directory : ["$DOTFILES_DIR"]"
 function link_dotfile() {
     target=$HOME/$1
     src=$DOTFILES_DIR/$1
-    if [ $DEBUG = 1 ]; then
-        echo "ln -s $src $target"
-    else
-        ln -s $src $target
-    fi
+    echo "ln -s $src $target"
+    ln -s $src $target
 }
 
 function exists() {
