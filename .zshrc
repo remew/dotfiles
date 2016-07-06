@@ -118,6 +118,7 @@ bindkey '^R' history-incremental-pattern-search-backward
 
 alias la='ls -a'
 alias ll='ls -l'
+alias lla='ls -la'
 
 # グローバルエイリアス
 alias -g L='| less'
