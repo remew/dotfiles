@@ -4,50 +4,44 @@ autocmd BufNewFile *.css 0r $HOME/.vim/template/template.css
 autocmd BufNewFile *.styl 0r $HOME/.vim/template/template.css
 autocmd BufNewFile *.cp.js 0r $HOME/.vim/template/template.cp.js
 
-"Installing Neobundle
-if has('vim_starting')
-	set nocompatible
-	if !isdirectory(expand("~/.vim/bundle/neobundle.vim/"))
-		echo "install neobundle..."
-		:call system("git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim")
-	endif
-	set runtimepath+=~/.vim/bundle/neobundle.vim/
+"Dein.vim
+if &compatible
+    set nocompatible
 endif
-call neobundle#begin(expand('~/.vim/bundle'))
-let g:neobundle_default_git_protocol='https'
+set runtimepath^=~/.vim/dein/repos/github.com/Shougo/dein.vim
 
-" Write plugin between neobundle#begin and neobundle#end
-NeoBundleFetch 'Shougo/neobundle.vim'
+call dein#begin(expand('~/.vim/dein'))
+
+call dein#add('Shougo/dein.vim')
+call dein#add('tyru/caw.vim.git') " multiline comment outer
+" call dein#add('nathanaelkane/vim-indent-guides') " coloring indent
+call dein#add('w0ng/vim-hybrid') " color scheme
+
+call dein#end()
+
+filetype plugin indent on
+if dein#check_install()
+    call dein#install()
+endif
 
 " Tree Filer
 " NeoBundle 'scrooloose/nerdtree'
 
-" Multiline comment outer
-NeoBundle 'tyru/caw.vim.git'
-
-" Coloring indent
-NeoBundle 'nathanaelkane/vim-indent-guides'
-
 " Markdown
-NeoBundle 'plasticboy/vim-markdown'
-NeoBundle 'kannokanno/previm'
-NeoBundle 'tyru/open-browser.vim'
+" NeoBundle 'plasticboy/vim-markdown'
+" NeoBundle 'kannokanno/previm'
+" NeoBundle 'tyru/open-browser.vim'
 
 " syntax
-NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload': {'filetypes': ['javascript']}}
-NeoBundle 'hail2u/vim-css3-syntax'
-" NeoBundle 'taichouchou2/html5.vim'
-NeoBundle 'hokaccha/vim-html5validator'
+" NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload': {'filetypes': ['javascript']}}
+" NeoBundle 'hail2u/vim-css3-syntax'
+" " NeoBundle 'taichouchou2/html5.vim'
+" NeoBundle 'hokaccha/vim-html5validator'
 
 "snippet
 " NeoBundle 'Shougo/neocomplete'
 " NeoBundle 'Shougo/neosnippet'
 " NeoBundle 'Shougo/neosnippet-snippets'
-
-NeoBundleCheck
-call neobundle#end()
-
-filetype plugin indent on
 
 """"""""""""""""""""
 "                  "
@@ -61,10 +55,12 @@ syntax on
 set number
 
 " Color scheme
-let g:hybrid_use_Xresources=1
-let g:hybrid_use_iTerm_colors=1
+" let g:hybrid_use_Xresources=1
+" let g:hybrid_use_iTerm_colors=1
+" let g:hybrid_custom_term_colors = 1
+" let g:hybrid_reduced_contrast = 1 " Remove this line if using the default palette.
+" colorscheme hybrid
 autocmd ColorScheme * highlight LineNr ctermfg=9
-colorscheme hybrid
 hi CursorLine term=underline cterm=underline guibg=Grey90
 
 " Dont use swap file.
@@ -85,6 +81,7 @@ set incsearch
 
 " File encoding
 set fileencoding=utf-8
+set encoding=utf-8
 
 " Indent
 set expandtab "TABキーを押した時にスペース
@@ -166,8 +163,8 @@ augroup END
 "nnoremap <silent><C-e> :NERDTreeToggle<CR>
 
 " caw settings
-nmap <C-C> <Plug>(caw:i:toggle)
-vmap <C-C> <Plug>(caw:i:toggle)
+nmap <C-C> <Plug>(caw:hatpos:toggle)
+vmap <C-C> <Plug>(caw:hatpos:toggle)
 
 " vim-indent-guides settings
 let g:indent_guides_enable_on_vim_startup=1
