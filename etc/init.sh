@@ -39,3 +39,5 @@ fi
 # change login shell
 chsh -s $(which zsh)
 
+git clone https://github.com/remew/dotfiles $WORKSPACE_DIR/dotfiles
+

@@ -1,7 +1,9 @@
 #!/bin/bash
 
 # define variables
-DOTFILES_DIR=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
+# DOTFILES_DIR=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
+WORKSPACE_DIR=$HOME/workspace
+DOTFILES_DIR=$WORKSPACE_DIR/dotfiles
 echo "dotfiles directory : ["$DOTFILES_DIR"]"
 
 # define functions
