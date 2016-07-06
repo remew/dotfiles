@@ -39,5 +39,8 @@ fi
 # change login shell
 chsh -s $(which zsh)
 
+curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > $WORKSPACE_DIR/install_dein.vim.sh
+sh $WORKSPACE_DIR/install_dein.vim.sh $HOME/.vim/dein
+
 git clone https://github.com/remew/dotfiles $WORKSPACE_DIR/dotfiles
 
