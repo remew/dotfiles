@@ -17,34 +17,25 @@ function create_workspace() {
     fi
 }
 
+function install_if_not_exists() {
+    if exists $1; then
+        echo "$1 is already installed"
+    else
+        sudo apt-get -y install $1
+    fi
+}
+
 # create workspace directory
 create_workspace
 
 if exists "apt-get"; then
     echo "package install phase for Ubuntu"
-    if exists "zsh"; then
-        echo "zsh is already installed"
-    else
-        sudo apt-get -y install zsh
-        echo "zsh path is..."
-        which zsh
-        chsh
-    fi
-    if exists "tmux"; then
-        echo "tmux is already installed"
-    else
-        sudo apt-get -y install tmux
-    fi
-    if exists "vim"; then
-        echo "vim is already installed"
-    else
-        sudo apt-get -y install vim
-        curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > $WORKSPACE_DIR/install_dein.sh
-        sh ./install_dein.vim.sh $HOME/.vim/dein
-    fi
-    if exists "git"; then
-        echo "git is already installed"
-    else
-        sudo apt-get -y install git
-    fi
+    install_if_not_exists "zsh"
+    install_if_not_exists "tmux"
+    install_if_not_exists "vim"
+    install_if_not_exists "git"
 fi
+
+# change login shell
+chsh -s $(which zsh)
+
