@@ -5,7 +5,15 @@ autocmd BufNewFile *.styl 0r $HOME/.vim/template/template.css
 autocmd BufNewFile *.cp.js 0r $HOME/.vim/template/template.cp.js
 
 "Dein.vim
-set runtimepath^=~/.vim/dein/repos/github.com/Shougo/dein.vim
+let s:dein_dir = expand('~/.cache/dein')
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+
+if &runtimepath !~# '/dein.vim'
+    if !isdirectory(s:dein_repo_dir)
+        execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+    endif
+    execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
+endif
 
 call dein#begin(expand('~/.vim/dein'))
 
