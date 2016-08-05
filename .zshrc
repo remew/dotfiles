@@ -39,6 +39,10 @@ PROMPT="%{${fg[blue]}%}[%n@%m %T]%{${reset_color}%}%~%f
 ${vcs_info_msg_0_}%# "
 }
 
+# コマンド修正
+setopt correct
+SPROMPT="%R -> %r? [y,n]: "
+
 # 単語の区切り文字を指定する
 autoload -Uz select-word-style
 select-word-style default
