@@ -3,6 +3,7 @@ autocmd BufNewFile *.html 0r $HOME/.vim/template/template.html
 autocmd BufNewFile *.css 0r $HOME/.vim/template/template.css
 autocmd BufNewFile *.styl 0r $HOME/.vim/template/template.css
 autocmd BufNewFile *.cp.js 0r $HOME/.vim/template/template.cp.js
+autocmd BufNewFile Vagrantfile 0r $HOME/.vim/template/template.Vagrantfile
 
 "Dein.vim
 let s:dein_dir = expand('~/.cache/dein')
