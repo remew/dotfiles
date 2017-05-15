@@ -103,7 +103,6 @@ augroup vimrc
 autocmd! FileType tag setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd! FileType jade setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd! FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
-autocmd! FileType css setlocal shiftwidth=2 tabstop=2 softtabstop=2
 " autocmd! FileType javascript setlocal shiftwidth=4 tabstop=4 softtabstop=4
 augroup END
 
