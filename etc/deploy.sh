@@ -14,11 +14,6 @@ function link_dotfile() {
     ln -s $src $target
 }
 
-function exists() {
-    which "$1" > /dev/null 2>&1
-    return $?
-}
-
 # execute to link
 link_dotfile ".vim" # this is not dotfile. this is directory.
 link_dotfile ".vimrc"
