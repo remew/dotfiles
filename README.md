@@ -1,3 +1,3 @@
 # dotfiles
-`curl -L dot.remew.net | bash` or `wget -qO - dot.remew.net | bash`
+`bash -c "$(curl -L https://dot.remew.net)"` or `bash -c "$(wget -qO - https://dot.remew.net)"`
 
