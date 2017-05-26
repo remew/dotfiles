@@ -19,4 +19,5 @@ link_dotfile ".vim" # this is not dotfile. this is directory.
 link_dotfile ".vimrc"
 link_dotfile ".zshrc"
 link_dotfile ".tmux.conf"
+link_dotfile ".gitconfig"
 
