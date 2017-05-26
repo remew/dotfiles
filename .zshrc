@@ -129,6 +129,8 @@ alias la='ls -a'
 alias ll='ls -l'
 alias lla='ls -la'
 
+alias cdg='cd $(ghq root)/$(ghq list | peco)'
+
 # グローバルエイリアス
 alias -g L='| less'
 alias -g G='| grep'
