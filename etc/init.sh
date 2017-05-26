@@ -14,6 +14,8 @@ function create_workspace() {
         echo "$WORKSPACE_DIR is already exists."
     else
         mkdir $WORKSPACE_DIR
+        mkdir $WORKSPACE_DIR/tmp
+        mkdir -p $WORKSPACE_DIR/tools/bin
     fi
 }
 
@@ -25,6 +27,19 @@ function install_if_not_exists() {
     fi
 }
 
+function install_peco() {
+    local FILENAME=$1
+    echo 'get newest peco'"'"'srelease file url'
+    local RELEASE=$(curl -s https://api.github.com/repos/peco/peco/releases | grep 'browser_download_url' | grep $FILENAME | head -n 1 | sed -e 's/^.*"\(https.*\)".*$/\1/')
+    echo 'download newest peco archive'
+    curl -L $RELEASE > $WORKSPACE_DIR/tmp/peco.tar.gz
+    cd $WORKSPACE_DIR/tmp
+    echo 'extract peco'
+    tar xzvf $WORKSPACE_DIR/tmp/peco.tar.gz
+    echo 'install peco'
+    mv $WORKSPACE_DIR/tmp/peco/peco $WORKSPACE_DIR/tools/bin/peco
+}
+
 # create workspace directory
 create_workspace
 
@@ -34,6 +49,12 @@ if exists "apt-get"; then
     install_if_not_exists "tmux"
     install_if_not_exists "vim"
     install_if_not_exists "git"
+    install_if_not_exists "curl"
+    install_peco 'peco_linux_amd64.tar.gz'
+    # wget -qO - https://github.com/peco/peco/releases/download/v0.5.1/peco_linux_amd64.tar.gz > $WORKSPACE_DIR/tmp/peco.tar.gz
+    # cd $WORKSPACE_DIR/tmp
+    # tar xzvf $WORKSPACE_DIR/tmp/peco.tar.gz
+    # mv $WORKSPACE_DIR/tmp/peco/peco $WORKSPACE_DIR/tools/bin/peco
 fi
 
 # change login shell
@@ -43,4 +64,8 @@ chsh -s $(which zsh)
 # sh $WORKSPACE_DIR/install_dein.vim.sh $HOME/.vim/dein
 
 git clone https://github.com/remew/dotfiles $WORKSPACE_DIR/dotfiles
+
+if [ -e $HOME/dotfiles ]; then
+    rm -rf $HOME/dotfiles
+fi
 
