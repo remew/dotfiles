@@ -40,6 +40,19 @@ function install_peco() {
     mv $WORKSPACE_DIR/tmp/peco/peco $WORKSPACE_DIR/tools/bin/peco
 }
 
+function install_ghq() {
+    local FILENAME=$1
+    echo 'get newest ghq'"'"'srelease file url'
+    local RELEASE=$(curl -s https://api.github.com/repos/motemen/ghq/releases | grep 'browser_download_url' | grep $FILENAME | head -n 1 | sed -e 's/^.*"\(https.*\)".*$/\1/')
+    echo 'download newest ghq archive'
+    curl -L $RELEASE > $WORKSPACE_DIR/tmp/ghq.zip
+    cd $WORKSPACE_DIR/tmp
+    echo 'extract ghq'
+    unzip $WORKSPACE_DIR/tmp/ghq.zip
+    echo 'install ghq'
+    mv $WORKSPACE_DIR/tmp/peco/peco $WORKSPACE_DIR/tools/bin/peco
+}
+
 # create workspace directory
 create_workspace
 
@@ -51,6 +64,7 @@ if exists "apt-get"; then
     install_if_not_exists "git"
     install_if_not_exists "curl"
     install_peco 'peco_linux_amd64.tar.gz'
+    install_ghq 'ghq_linux_amd64.zip'
     # wget -qO - https://github.com/peco/peco/releases/download/v0.5.1/peco_linux_amd64.tar.gz > $WORKSPACE_DIR/tmp/peco.tar.gz
     # cd $WORKSPACE_DIR/tmp
     # tar xzvf $WORKSPACE_DIR/tmp/peco.tar.gz
