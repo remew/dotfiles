@@ -50,7 +50,7 @@ function install_ghq() {
     echo 'extract ghq'
     unzip $WORKSPACE_DIR/tmp/ghq.zip
     echo 'install ghq'
-    mv $WORKSPACE_DIR/tmp/peco/peco $WORKSPACE_DIR/tools/bin/peco
+    mv $WORKSPACE_DIR/tmp/ghq $WORKSPACE_DIR/tools/bin/ghq
 }
 
 # create workspace directory
