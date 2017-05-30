@@ -37,7 +37,7 @@ function install_peco() {
     echo 'extract peco'
     tar xzvf $WORKSPACE_DIR/tmp/peco.tar.gz
     echo 'install peco'
-    mv $WORKSPACE_DIR/tmp/peco/peco $WORKSPACE_DIR/tools/bin/peco
+    mv $WORKSPACE_DIR/tmp/peco_linux_amd64/peco $WORKSPACE_DIR/tools/bin/peco
 }
 
 function install_ghq() {
