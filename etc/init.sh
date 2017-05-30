@@ -29,7 +29,7 @@ function install_if_not_exists() {
 
 function install_peco() {
     local FILENAME=$1
-    echo 'get newest peco'"'"'srelease file url'
+    echo 'get newest peco'"'"'s release file url'
     local RELEASE=$(curl -s https://api.github.com/repos/peco/peco/releases | grep 'browser_download_url' | grep $FILENAME | head -n 1 | sed -e 's/^.*"\(https.*\)".*$/\1/')
     echo 'download newest peco archive'
     curl -L $RELEASE > $WORKSPACE_DIR/tmp/peco.tar.gz
@@ -42,7 +42,7 @@ function install_peco() {
 
 function install_ghq() {
     local FILENAME=$1
-    echo 'get newest ghq'"'"'srelease file url'
+    echo 'get newest ghq'"'"'s release file url'
     local RELEASE=$(curl -s https://api.github.com/repos/motemen/ghq/releases | grep 'browser_download_url' | grep $FILENAME | head -n 1 | sed -e 's/^.*"\(https.*\)".*$/\1/')
     echo 'download newest ghq archive'
     curl -L $RELEASE > $WORKSPACE_DIR/tmp/ghq.zip
