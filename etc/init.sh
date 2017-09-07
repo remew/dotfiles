@@ -19,11 +19,21 @@ function create_workspace() {
     fi
 }
 
+function install_package() {
+    if exists "apt-get"; then
+        sudo apt-get -y install $1
+    elif exists "brew"; then
+        brew install $1
+    elif exists "pacman"; then
+        sudo pacman -Syu $1
+    fi
+}
+
 function install_if_not_exists() {
     if exists $1; then
         echo "$1 is already installed"
     else
-        sudo apt-get -y install $1
+        install_package $1
     fi
 }
 
@@ -56,20 +66,18 @@ function install_ghq() {
 # create workspace directory
 create_workspace
 
-if exists "apt-get"; then
-    echo "package install phase for Ubuntu"
-    install_if_not_exists "zsh"
-    install_if_not_exists "tmux"
-    install_if_not_exists "vim"
-    install_if_not_exists "git"
-    install_if_not_exists "curl"
-    install_peco 'peco_linux_amd64.tar.gz'
-    install_ghq 'ghq_linux_amd64.zip'
-    # wget -qO - https://github.com/peco/peco/releases/download/v0.5.1/peco_linux_amd64.tar.gz > $WORKSPACE_DIR/tmp/peco.tar.gz
-    # cd $WORKSPACE_DIR/tmp
-    # tar xzvf $WORKSPACE_DIR/tmp/peco.tar.gz
-    # mv $WORKSPACE_DIR/tmp/peco/peco $WORKSPACE_DIR/tools/bin/peco
-fi
+echo "package install phase"
+install_if_not_exists "zsh"
+install_if_not_exists "tmux"
+install_if_not_exists "vim"
+install_if_not_exists "git"
+install_if_not_exists "curl"
+install_peco 'peco_linux_amd64.tar.gz'
+install_ghq 'ghq_linux_amd64.zip'
+# wget -qO - https://github.com/peco/peco/releases/download/v0.5.1/peco_linux_amd64.tar.gz > $WORKSPACE_DIR/tmp/peco.tar.gz
+# cd $WORKSPACE_DIR/tmp
+# tar xzvf $WORKSPACE_DIR/tmp/peco.tar.gz
+# mv $WORKSPACE_DIR/tmp/peco/peco $WORKSPACE_DIR/tools/bin/peco
 
 # change login shell
 chsh -s $(which zsh)
