@@ -63,6 +63,12 @@ function install_ghq() {
     mv $WORKSPACE_DIR/tmp/ghq $WORKSPACE_DIR/tools/bin/ghq
 }
 
+function install_dein() {
+    curl -L https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > $WORKSPACE_DIR/tmp/installer.sh
+    cd $WORKSPACE_DIR/tmp
+    sh ./installer.sh ~/.cache/dein
+}
+
 # create workspace directory
 create_workspace
 
@@ -74,6 +80,7 @@ install_if_not_exists "git"
 install_if_not_exists "curl"
 install_peco 'peco_linux_amd64.tar.gz'
 install_ghq 'ghq_linux_amd64.zip'
+install_dein
 # wget -qO - https://github.com/peco/peco/releases/download/v0.5.1/peco_linux_amd64.tar.gz > $WORKSPACE_DIR/tmp/peco.tar.gz
 # cd $WORKSPACE_DIR/tmp
 # tar xzvf $WORKSPACE_DIR/tmp/peco.tar.gz
