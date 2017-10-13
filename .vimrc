@@ -23,6 +23,7 @@ call dein#add('tyru/caw.vim.git') " multiline comment outer
 " call dein#add('nathanaelkane/vim-indent-guides') " coloring indent
 call dein#add('w0ng/vim-hybrid') " color scheme
 call dein#add('t9md/vim-textmanip') " text manip
+call dein#add('mattn/emmet-vim') " emmet
 
 call dein#end()
 
