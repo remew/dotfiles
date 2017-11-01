@@ -34,6 +34,7 @@ if dein#load_state('~/.cache/dein')
     call dein#add('w0ng/vim-hybrid') " color scheme
     call dein#add('t9md/vim-textmanip') " text manip
     call dein#add('mattn/emmet-vim') " emmet
+    call dein#add('othree/yajs.vim') " js syntax
 
     " Required:
     call dein#end()
