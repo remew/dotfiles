@@ -109,9 +109,10 @@ set showmatch
 set incsearch
 
 " File encoding
-set fileencoding=utf-8
-set encoding=utf-8
-set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
+set encoding=utf-8 " inner charset is utf-8
+set fileencoding=utf-8 " new file's charset is utf-8
+set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8 " try open with jis, euc-jp, shift-jis and utf-8
+set fileformats=unix,dos,mac " newline type
 
 " Indent
 set expandtab "TABキーを押した時にスペース
