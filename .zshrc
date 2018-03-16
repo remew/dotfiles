@@ -130,6 +130,7 @@ alias ll='ls -l'
 alias lla='ls -la'
 
 alias cdg='cd $(ghq root)/$(ghq list | peco)'
+alias cdroot='cd $(git rev-parse --show-toplevel)'
 
 # グローバルエイリアス
 alias -g L='| less'
