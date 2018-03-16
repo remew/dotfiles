@@ -35,6 +35,7 @@ if dein#load_state('~/.cache/dein')
     call dein#add('t9md/vim-textmanip') " text manip
     call dein#add('mattn/emmet-vim') " emmet
     call dein#add('othree/yajs.vim') " js syntax
+    call dein#add('ap/vim-buftabline') " show tabs on top
 
     " Required:
     call dein#end()
@@ -223,4 +224,19 @@ if has('conceal')
     set conceallevel=2 concealcursor=niv
 endif
 
+" netrw
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4 " Enter時に前のWindowに展開する
+let g:netrw_altv = 1 " 左右分割で開くときの配置を逆にする(右に表示)
+let g:netrw_winsize = 20 " netrwの幅
+augroup ProjectDrawer
+    autocmd!
+    autocmd VimEnter * :Vexplore
+augroup END
+
+" vim-buftabline
+" override [gt/gT]
+nmap gt :bnext<CR>
+nmap gT :bprev<CR>
 
