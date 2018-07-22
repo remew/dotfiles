@@ -69,6 +69,10 @@ function install_dein() {
     sh ./installer.sh ~/.cache/dein
 }
 
+function install_nvm() {
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+}
+
 # create workspace directory
 create_workspace
 
@@ -81,6 +85,7 @@ install_if_not_exists "curl"
 install_peco 'peco_linux_amd64.tar.gz'
 install_ghq 'ghq_linux_amd64.zip'
 install_dein
+install_nvm
 # wget -qO - https://github.com/peco/peco/releases/download/v0.5.1/peco_linux_amd64.tar.gz > $WORKSPACE_DIR/tmp/peco.tar.gz
 # cd $WORKSPACE_DIR/tmp
 # tar xzvf $WORKSPACE_DIR/tmp/peco.tar.gz
