@@ -99,7 +99,3 @@ chsh -s $(which zsh)
 
 git clone https://github.com/remew/dotfiles $WORKSPACE_DIR/dotfiles
 
-if [ -e $HOME/dotfiles ]; then
-    rm -rf $HOME/dotfiles
-fi
-
