@@ -142,6 +142,9 @@ set whichwrap=b,s,h,l,<,>,[,]
 " Dont wrap line.
 set nowrap
 
+" enable mouse
+set mouse=a
+set ttymouse=xterm2
 
 " タブをスペースに展開しない
 " set expandtab
