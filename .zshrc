@@ -131,6 +131,11 @@ alias lla='ls -la'
 
 alias cdg='cd $(ghq root)/$(ghq list | peco)'
 alias cdroot='cd $(git rev-parse --show-toplevel)'
+alias npmrun='npm run $(show-npm-scripts | peco | cut -f 1 -d " ")'
+
+function show-npm-scripts() {
+    cat package.json|jq -r ".scripts | to_entries[] | \"\(.key),\(.value)\"" | column -t -s,
+}
 
 # グローバルエイリアス
 alias -g L='| less'
