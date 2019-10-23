@@ -5,3 +5,9 @@
 [ghq]
     root = ~/workspace
 
+[alias]
+    branches = branch -a
+    tags = tag -a
+    stashes = stash list
+    current-branch = rev-parse --abbrev-ref HEAD
+
