@@ -10,4 +10,5 @@
     tags = tag -a
     stashes = stash list
     current-branch = rev-parse --abbrev-ref HEAD
+    uncommit = reset HEAD~1
 
