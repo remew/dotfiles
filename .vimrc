@@ -236,6 +236,7 @@ let g:netrw_winsize = 20 " netrwの幅
 augroup ProjectDrawer
     autocmd!
     autocmd VimEnter * :Vexplore
+    autocmd VimEnter * :wincmd l
 augroup END
 
 " vim-buftabline
